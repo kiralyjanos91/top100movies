@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container } from "react-bootstrap"
+import { Container , Row , Col } from "react-bootstrap"
 import { Link , Route , Routes } from "react-router-dom"
 import { useDispatch , useSelector } from "react-redux"
 import { addMovies } from "./movieslist/moviesListSlice"
@@ -30,11 +30,11 @@ export default function App(){
       }
     }
     
-    fetch('secret api', options)
+    fetch('secret key', options)
       .then(response => {
         if (response.status === 200){
             return response.json()
-          }
+        }
         else {
           throw new Error("Failed to fetch")
         }
@@ -49,16 +49,28 @@ export default function App(){
 
   return(
     <>
-      <Menu />
-      <Container className="app">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/top100" element={<Toplist />} />
-          <Route path="/movie/:movieRank" element={<Movie />} />
-          <Route path="/saved" element={<SavedList />} />
-        </Routes>
-      </Container>
-      <Footer />
+      {!isError ? 
+        <>
+          <Menu />
+          <Container className="app">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/top100" element={<Toplist />} />
+              <Route path="/movie/:movieRank" element={<Movie />} />
+              <Route path="/saved" element={<SavedList />} />
+            </Routes>
+          </Container>
+          <Footer />
+        </>
+      :
+        <Container className="error-container">
+          <Row>
+            <Col>
+              <h1 className="error-message">Something Went Wrong, please come back later</h1>
+            </Col>
+          </Row>
+        </Container>
+      }
     </>
   )
 }
