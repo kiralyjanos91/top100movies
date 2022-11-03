@@ -1,0 +1,51 @@
+.movie-container{
+    color: white;
+}
+
+.save-unsave{
+    max-width: fit-content;
+    cursor: pointer;
+}
+
+.header-row{
+    max-height: 400px;
+}
+
+.year{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-row{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.image{
+    max-width: fit-content;
+}
+
+.image > img{
+    max-height: 400px;
+}
+
+.trailer-col{
+    display: grid;
+}
+
+.iframespinner{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-self: center;
+    align-self: center;
+    color: #5799EF;
+}
+
+.trailer-iframe{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}

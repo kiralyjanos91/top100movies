@@ -1,24 +1,64 @@
 import React, { useState , useEffect } from "react"
-import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Container } from "react-bootstrap"
+import { Link , Route , Routes } from "react-router-dom"
+import { useDispatch , useSelector } from "react-redux"
+import { addMovies } from "./movieslist/moviesListSlice"
+import "./App.css"
+import Menu from "./menu/menu"
+import HomePage from "./homepage/homepage"
+import Toplist from "./toplist/toplist"
+import Movie from "./movie/movie"
+import SavedList from "./savedlist/savedlist"
+import Footer from "./footer/footer"
 
 export default function App(){
+
+  const savedMovies = useSelector((state) => state.savedList.saved)
+  const [ isError , setIsError ] = useState(false)
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    localStorage.setItem("moviesSavedList" , JSON.stringify(savedMovies))
+  },[savedMovies])
 
   useEffect(()=>{
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '56bd2c0a8bmshb28498e9bd62633p1d4ce4jsn48be7ca34c90',
-        'X-RapidAPI-Host': 'evosiss-game-database.p.rapidapi.com'
+        'Content-Type': 'application/json',
       }
-    };
+    }
     
-    fetch('https://evosiss-game-database.p.rapidapi.com/getGameList/ldlap3MPTGYdcbsaEYAI2mgmNQmOD5bK/0', options)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(err => console.error(err));
+    fetch('secret api', options)
+      .then(response => {
+        if (response.status === 200){
+            return response.json()
+          }
+        else {
+          throw new Error("Failed to fetch")
+        }
+      })
+      .then(response => dispatch(addMovies(response)))
+      .catch(err => {
+        setIsError(true)
+        dispatch(addMovies([]))
+        console.error(err)
+      });
   },[])
 
   return(
-    <h1>This is the app</h1>
+    <>
+      <Menu />
+      <Container className="app">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/top100" element={<Toplist />} />
+          <Route path="/movie/:movieRank" element={<Movie />} />
+          <Route path="/saved" element={<SavedList />} />
+        </Routes>
+      </Container>
+      <Footer />
+    </>
   )
 }

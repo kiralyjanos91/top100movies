@@ -1,0 +1,40 @@
+.saved-list-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.saved-list-element{
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 1;
+}
+
+.delete-icon{
+    background-color: #0d0d0d;
+    filter: opacity(60%);
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: none;
+}
+
+.delete-icon > img{
+    width: 25px;
+    margin: 5px;
+}
+
+.saved-list-element:hover{
+    filter: brightness(120%);
+}
+
+.saved-list-element:hover .delete-icon{
+    display: unset;
+}
