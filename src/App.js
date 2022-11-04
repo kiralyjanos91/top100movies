@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container } from "react-bootstrap"
-import { Link , Route , Routes } from "react-router-dom"
+import { Container , Row , Col } from "react-bootstrap"
+import { Link , Route , Routes , useLocation } from "react-router-dom"
 import { useDispatch , useSelector } from "react-redux"
 import { addMovies } from "./movieslist/moviesListSlice"
 import "./App.css"
@@ -30,11 +30,11 @@ export default function App(){
       }
     }
     
-    fetch('secret api', options)
+    fetch('secret api call', options)
       .then(response => {
         if (response.status === 200){
             return response.json()
-          }
+        }
         else {
           throw new Error("Failed to fetch")
         }
@@ -47,18 +47,34 @@ export default function App(){
       });
   },[])
 
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },[useLocation()])
+
   return(
     <>
-      <Menu />
-      <Container className="app">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/top100" element={<Toplist />} />
-          <Route path="/movie/:movieRank" element={<Movie />} />
-          <Route path="/saved" element={<SavedList />} />
-        </Routes>
-      </Container>
-      <Footer />
+      {!isError ? 
+        <>
+          <Menu />
+          <Container className="app">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/top100" element={<Toplist />} />
+              <Route path="/movie/:movieRank" element={<Movie />} />
+              <Route path="/saved" element={<SavedList />} />
+            </Routes>
+          </Container>
+          <Footer />
+        </>
+      :
+        <Container className="error-container">
+          <Row>
+            <Col>
+              <h1 className="error-message">Something went wrong, please come back later</h1>
+            </Col>
+          </Row>
+        </Container>
+      }
     </>
   )
 }

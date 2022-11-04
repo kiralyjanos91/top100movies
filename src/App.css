@@ -1,6 +1,7 @@
 .app{
   padding-top: 50px;
   padding-bottom: 50px;
+  min-height: 90vh;
 }
 
 .star-icon{
@@ -27,4 +28,16 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+}
+
+.error-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  color: white;
+}
+
+.error-message{
+  text-align: center;
 }
