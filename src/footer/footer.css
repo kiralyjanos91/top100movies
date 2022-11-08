@@ -1,4 +1,40 @@
 .footer{
-    background-color: #121212 !important;
-    height: 200px;
+    background-color: #0a0c10 !important;
+    margin-top: 10px;
 }
+
+.footer > .container{
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer-logo-col{
+    display: flex;
+    align-items: center;
+}
+
+.footer-links-col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+a{
+    color: #ffffff8c;
+}
+
+.footer-copyright{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #050507;
+    color: #ffffff8c;
+}
+
+@media screen and (max-width:768px){
+    .footer > .container{
+        display: none;
+    }
+  }

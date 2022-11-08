@@ -5,6 +5,7 @@ import { useSelector , useDispatch } from "react-redux"
 import { removeFromSavedList } from "./savedListSlice"
 import TrashIcon from "../images/delete.png"
 import "./savedlist.css"
+import EmptyList from "../emptylist/emptylist"
 
 export default function SavedList(){
     const dispatch = useDispatch()
@@ -38,10 +39,15 @@ export default function SavedList(){
     })
 
     return(
-        <Container>
-            <Row className="posters-list-row">
-                {savedMoviesList}
-            </Row>
+        <Container className="saved-list-container">
+            {
+                savedIds.length > 0 ?
+                    <Row className="posters-list-row">
+                        {savedMoviesList}
+                    </Row>
+                :
+                    <EmptyList />
+            }
         </Container>
     )
 }

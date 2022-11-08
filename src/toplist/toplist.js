@@ -22,7 +22,7 @@ export default function Toplist(){
                 <Link to={`/movie/${movie.rank}`} key={index}>
                     <Row className="top-100-row">
                         <Col className="rank">
-                            {movie.rank}.
+                            Rank: {movie.rank}
                         </Col>
                         <Col className="thumbnail">
                             <img src={movie.thumbnail} alt={`movie ${index}`} />
@@ -63,11 +63,11 @@ return(
     <Container className="top100movies">
         <Row>
             <Col>
-                <h1>Top 100</h1>
+                <h1>Top 100 {lastGenre === "All" ? "" : `- ${lastGenre}`}</h1>
             </Col>
         </Row>
         <Row className="genre-and-view-row">
-            <Col>
+            <Col className="dropdown-col">
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                         Filter by Genre
@@ -76,9 +76,6 @@ return(
                         {genresDropdown}
                     </Dropdown.Menu>
                 </Dropdown>
-            </Col>
-            <Col>
-                <span>{lastGenre === "All" ? "" : lastGenre}</span>
             </Col>
             <Col>
                 <p className="view-select">
@@ -90,7 +87,7 @@ return(
         </Row>
         {listView === "posters" ?
             <Row className="posters-list-row">
-                    {postersList}
+                {postersList}
             </Row>
             :
             <Row>

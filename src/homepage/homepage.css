@@ -1,0 +1,89 @@
+@font-face {
+    font-family: LexendDeca;
+    src: url(../fonts/LexendDeca-VariableFont_wght.ttf);
+}
+
+.header-container{
+    margin-bottom: 50px;
+}
+
+.header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: fit-content;
+    width: 100vw;
+    color: white;
+    backdrop-filter: blur(2px) brightness(0.5);
+    background: linear-gradient(#121212c9, #00032685);
+}
+
+.header-row{
+    justify-content: center;
+}
+
+.headline-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+}
+
+.headline-col > .btn{
+    width: 60%;
+}
+
+.header-text{
+    text-align: center;
+    font-family: LexendDeca;
+}
+
+.random-movie-col{
+    cursor: pointer;
+    max-width: fit-content;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.random-movie-col:hover{
+    filter: brightness(120%);
+}
+
+.random-movie-image{
+    border-radius: 5px;
+    max-height: 100%;
+}
+
+@media screen and ( max-width: 768px){
+    .app{
+        padding-bottom: 0px;
+    }
+    
+    .random-movie-col{
+        margin-top: 80px;
+    }
+
+    .posters-list-container{
+        display: none;
+    }
+
+    .header{
+        min-height: 100vh;
+    }
+
+    .header-container{
+        margin-bottom: 0px;
+    }
+
+    .header-text{
+        width: 80%;
+    }
+
+    .footer{
+        margin-top: 0px !important;
+    }
+}

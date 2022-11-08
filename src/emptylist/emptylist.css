@@ -1,0 +1,15 @@
+.empty-list-container{
+    height: calc(90vh - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.empty-list-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
