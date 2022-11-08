@@ -1,13 +1,21 @@
 .top100movies{
-    color: #ffffff
+    color: #ffffff;
+    margin-top: 50px;
 }
 
 .genre-and-view-row{
+    display: flex;
+    align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+.dropdown-col{
+    max-width: fit-content;
+}
+
 .view-select{
+    margin: 0px;
     cursor: pointer;
     text-align: right;
 }
@@ -20,7 +28,7 @@
 .top-100-row{
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: #ffffffe7;
     border: 1px solid #50505040;
     background-color: #0000002b;
     border-radius: 5px;

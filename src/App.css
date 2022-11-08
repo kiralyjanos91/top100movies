@@ -1,7 +1,9 @@
 .app{
-  padding-top: 50px;
   padding-bottom: 50px;
   min-height: 90vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .star-icon{
@@ -11,6 +13,12 @@
 
 .posters-list-row{
   row-gap: 20px;
+}
+
+@media screen and (max-width:768px){
+  .posters-list-row{
+    margin-bottom: 50px;
+  }
 }
 
 .movie-grid-image{

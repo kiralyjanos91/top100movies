@@ -8,16 +8,16 @@ export default function Menu(){
 
   const savedMovies = useSelector((state)=>state.savedList.saved)
     return(
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/top100">Top 100</Nav.Link>
-              <Nav.Link as={Link} to="/saved">
-                Saved Movies <span className="saved-count">{savedMovies.length}</span>
+            <Nav className="ms-auto">
+              <Nav.Link eventKey="1" as={Link} to="/">Home</Nav.Link>
+              <Nav.Link eventKey="2" as={Link} to="/top100">Top 100</Nav.Link>
+              <Nav.Link eventKey="3" as={Link} to="/saved">
+                Saved Movies {savedMovies.length > 0 ? <span className="saved-count">{savedMovies.length}</span> : null}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

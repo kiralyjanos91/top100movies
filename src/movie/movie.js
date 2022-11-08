@@ -18,26 +18,26 @@ export default function Movie(){
     const movies = useSelector((state)=>state.moviesList.movies)
     const movie = movies.find(( movie ) => movie.rank === parseInt(movieRank))
     let embedTrailer = ""
+    let genresLinks = []
     const [ iframeIsLoading , setIframeIsLoading ] = useState(true)
     
     if(movies.length > 0){
         embedTrailer = movie.trailer.replace("watch?v=","embed/")
-    }
-
-    const genresLinks = movie.genre.replace(/\s/g,'').split(",").map((genre,index)=>
-        <span
-            className="genre-link"
-            key={index}
-            onClick={
-                ()=>{
-                    dispatch(setLastGenre(genre))
-                    navigate("/top100")
+        genresLinks = movie.genre.replace(/\s/g,'').split(",").map((genre,index)=>
+            <span
+                className="genre-link"
+                key={index}
+                onClick={
+                    ()=>{
+                        dispatch(setLastGenre(genre))
+                        navigate("/top100")
+                    }
                 }
-            }
-        >
-            {genre}
-        </span>
-    )
+            >
+                {genre}
+            </span>
+        )
+    }
 
     return(
         <>
@@ -94,7 +94,7 @@ export default function Movie(){
                             </p>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="details-row">
                         <Col>
                             <hr />
                             <p>
