@@ -56,7 +56,15 @@ export default function Toplist(){
     }
 
     const genresDropdown = genresList.map((genre,index)=>
-        <Dropdown.Item id={genre} onClick={(e)=>{dispatch(setLastGenre(e.target.id))}}>{genre}</Dropdown.Item>
+        <Dropdown.Item 
+            id={genre} 
+            key={index} 
+            onClick={(e)=>{
+                dispatch(setLastGenre(e.target.id))
+            }}
+        >
+            {genre}
+        </Dropdown.Item>
     )
 
 return(

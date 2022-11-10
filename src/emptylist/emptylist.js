@@ -12,7 +12,7 @@ export default function EmptyList(){
                         Your list is empty
                     </h1>
                     <p>
-                        Check the list and add movies to your list
+                        Check the list and add some movies
                     </p>
                     <Button as={Link} to="/top100">Check List</Button>
                 </Col>

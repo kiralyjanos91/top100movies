@@ -2,6 +2,10 @@
     background-color: #0e1116 !important;
 }
 
+.logo{
+    height: 40px;
+}
+
 .saved-count{
     color: #5799EF;
 }

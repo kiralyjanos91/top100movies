@@ -1,7 +1,8 @@
-import react from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { Container , Nav , Navbar } from "react-bootstrap"
+import Logo from "../images/logo.png"
 import "./menu.css"
 
 export default function Menu(){
@@ -10,7 +11,7 @@ export default function Menu(){
     return(
       <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/"><img src={Logo} alt="logo" className="logo" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">

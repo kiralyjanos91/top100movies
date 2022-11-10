@@ -30,7 +30,7 @@ export default function App(){
       }
     }
     
-    fetch('https://app.sheetlabs.com/RAPI/Top100movieslist', options)
+    fetch('Secret Api Key', options)
       .then(response => {
         if (response.status === 200){
             return response.json()
