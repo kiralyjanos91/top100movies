@@ -1,5 +1,15 @@
-.navbar{
+.bg-transparent{
+    margin-bottom: -66px;
+    z-index: 1;
+}
+
+.bg-dark{
     background-color: #0e1116 !important;
+}
+
+.logo{
+    height: 40px;
+    width: 100%;
 }
 
 .saved-count{

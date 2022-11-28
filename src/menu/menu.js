@@ -1,16 +1,21 @@
-import react from "react"
-import { Link } from "react-router-dom"
+import React from "react"
+import { Link , useLocation } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { Container , Nav , Navbar } from "react-bootstrap"
+import Logo from "../images/logo.png"
 import "./menu.css"
 
 export default function Menu(){
 
-  const savedMovies = useSelector((state)=>state.savedList.saved)
+  const savedMovies = useSelector( ( state ) => state.savedList.saved )
+  const location = useLocation()
+
+  const bgType = location.pathname === "/" ? "transparent" : "dark" 
+
     return(
-      <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
+      <Navbar collapseOnSelect bg={bgType} variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/"><img src={Logo} alt="logo" className="logo" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">

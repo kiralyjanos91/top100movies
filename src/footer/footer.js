@@ -1,17 +1,24 @@
 import React from "react"
 import { Container , Col , Row } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Link , useNavigate } from "react-router-dom"
+import Logo from "../images/logo.png"
 import "./footer.css"
 
 export default function Footer(){
+
+    const navigate = useNavigate()
+
     return(
         <div className="footer">
             <Container>
                 <Row>
                     <Col className="footer-logo-col">
-                        <h1>
-                            LOGO PLACEHOLDER
-                        </h1>
+                        <img 
+                            src={Logo} 
+                            alt="footer-logo" 
+                            className="footer-logo"
+                            onClick={()=>{navigate("/")}}
+                        />
                     </Col>
                     <Col className="footer-links-col">
                         <Link to="/">
@@ -29,7 +36,7 @@ export default function Footer(){
                 </Row>
             </Container>
             <div className="footer-copyright">
-                <a>Copyright Ⓒ2022 - Top100movies.com</a>
+                <p>Copyright Ⓒ2022 - Top100movies.com</p>
             </div>
         </div>
     )

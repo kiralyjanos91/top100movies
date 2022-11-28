@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container , Row , Col } from "react-bootstrap"
-import { Link , Route , Routes , useLocation } from "react-router-dom"
+import { Route , Routes , useLocation } from "react-router-dom"
 import { useDispatch , useSelector } from "react-redux"
 import { addMovies } from "./movieslist/moviesListSlice"
 import "./App.css"
@@ -17,6 +17,7 @@ export default function App(){
   const savedMovies = useSelector((state) => state.savedList.saved)
   const [ isError , setIsError ] = useState(false)
   const dispatch = useDispatch()
+  const location = useLocation()
 
   useEffect(()=>{
     localStorage.setItem("moviesSavedList" , JSON.stringify(savedMovies))
@@ -30,7 +31,7 @@ export default function App(){
       }
     }
     
-    fetch('https://app.sheetlabs.com/RAPI/Top100movieslist', options)
+    fetch('Api link', options)
       .then(response => {
         if (response.status === 200){
             return response.json()
@@ -49,7 +50,7 @@ export default function App(){
 
   useEffect(()=>{
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  },[useLocation()])
+  },[location])
 
   return(
     <>
@@ -70,7 +71,7 @@ export default function App(){
         <Container className="error-container">
           <Row>
             <Col>
-              <h1 className="error-message">Something went wrong, please come back later</h1>
+              <h1 className="error-message">Something went wrong, please try again later</h1>
             </Col>
           </Row>
         </Container>
