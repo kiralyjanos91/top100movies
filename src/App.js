@@ -31,7 +31,7 @@ export default function App(){
       }
     }
     
-    fetch('Api link', options)
+    fetch('movies API', options)
       .then(response => {
         if (response.status === 200){
             return response.json()
