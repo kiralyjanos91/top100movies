@@ -31,7 +31,7 @@ export default function App(){
       }
     }
     
-    fetch('Secret api url', options)
+    fetch('Api link', options)
       .then(response => {
         if (response.status === 200){
             return response.json()

@@ -71,11 +71,13 @@ export default function HomePage(){
                     </Container>   
                 </div>
             </div>
-            <Container className="posters-list-container">
-                <Row>
-                    {moviesGrid}
-                </Row>
-            </Container>
+            {window.innerWidth >= 768 &&
+                <Container className="posters-list-container">
+                    <Row>
+                        {moviesGrid}
+                    </Row>
+                 </Container>
+            }
         </>
     )
 }
