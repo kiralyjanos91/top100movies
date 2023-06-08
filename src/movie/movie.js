@@ -23,7 +23,7 @@ export default function Movie(){
     
     if(movies.length > 0){
         embedTrailer = movie.trailer.replace("watch?v=","embed/")
-        genresLinks = movie.genre.replace(/\s/g,'').split(",").map((genre,index)=>
+        genresLinks = movie.genre.map((genre,index)=>
             <span
                 className="genre-link"
                 key={index}

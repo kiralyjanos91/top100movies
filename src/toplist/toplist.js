@@ -14,11 +14,13 @@ export default function Toplist(){
     const movies = useSelector((state)=>state.moviesList.movies)
     const [ listView , setListView ] = useState("posters")
 
+    console.log(movies)
+
     const moviesList = movies.filter((movie) =>
         lastGenre === "All" ? 
             movie 
         : 
-            movie.genre.replace(/\s/g,'').split(",").includes(lastGenre)).map(( movie , index ) => 
+            movie.genre.includes(lastGenre)).map(( movie , index ) => 
                 <Link to={`/movie/${movie.rank}`} key={index}>
                     <Row className="top-100-row">
                         <Col className="rank">
@@ -41,7 +43,7 @@ export default function Toplist(){
         lastGenre === "All" ? 
             movie 
         : 
-            movie.genre.replace(/\s/g,'').split(",").includes(lastGenre)).map((movie,index) =>
+            movie.genre.includes(lastGenre)).map((movie,index) =>
                 <Col md="3" className="movie-grid-element" key={index}>
                     <div className="poster">
                         <Link to={`/movie/${movie.rank}`}>

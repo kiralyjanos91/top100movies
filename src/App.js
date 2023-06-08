@@ -31,7 +31,7 @@ export default function App(){
       }
     }
     
-    fetch('movies API', options)
+    fetch('https://top100movies-5f84e.web.app/movies', options)
       .then(response => {
         if (response.status === 200){
             return response.json()
