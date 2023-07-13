@@ -102,11 +102,11 @@ export default function Movie(){
                             </p>
                             <hr />
                             <p>
-                                Writers: {movie.writers}
+                                Writers: {movie.writers.join(", ")}
                             </p>
                             <hr />
                             <p>
-                                Director: {movie.director}
+                                Director: {movie.director.join(", ")}
                             </p>
                             <hr />
                         </Col>
