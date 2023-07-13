@@ -36,7 +36,7 @@ export default function Footer(){
                 </Row>
             </Container>
             <div className="footer-copyright">
-                <p>Copyright Ⓒ2022 - Top100movies.com</p>
+                <p>Copyright Ⓒ2022 - TOP100FINEST</p>
             </div>
         </div>
     )

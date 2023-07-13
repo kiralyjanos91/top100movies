@@ -30,8 +30,10 @@ export default function App(){
         'Content-Type': 'application/json',
       }
     }
+
+    const restApiLink = process.env.REACT_APP_REST_API
     
-    fetch('Api link', options)
+    fetch(restApiLink, options)
       .then(response => {
         if (response.status === 200){
             return response.json()
